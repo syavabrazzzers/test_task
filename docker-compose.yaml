@@ -1,0 +1,21 @@
+services:
+  backend:
+    image: backend
+    restart: always
+    build: ./app
+    container_name: backend
+    network_mode: host
+#    ports:
+#      - 8000:8000
+    volumes:
+     - ./app:/usr/src/code
+
+  admin:
+    image: admin
+    build: ./admin
+    restart: always
+    container_name: admin
+    ports:
+      - 3000:3000
+    volumes:
+      - ./admin:/app
